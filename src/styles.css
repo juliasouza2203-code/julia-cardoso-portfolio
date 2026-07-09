@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 207 45% 7%;
+    --foreground: 180 28% 94%;
+    --card: 198 30% 11%;
+    --card-foreground: 180 28% 94%;
+    --primary: 42 48% 59%;
+    --primary-foreground: 207 45% 7%;
+    --secondary: 178 34% 22%;
+    --secondary-foreground: 180 28% 94%;
+    --muted: 200 22% 17%;
+    --muted-foreground: 184 14% 70%;
+    --accent: 176 36% 36%;
+    --accent-foreground: 185 30% 96%;
+    --border: 188 18% 24%;
+    --input: 188 18% 24%;
+    --ring: 42 48% 59%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    min-width: 320px;
+    font-family: "Instrument Sans", Arial, sans-serif;
+    background:
+      linear-gradient(180deg, #07111a 0%, #091820 48%, #07111a 100%);
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.35);
+  }
+}
+
+@layer utilities {
+  .blueprint-grid {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.18) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.16) 1px, transparent 1px),
+      linear-gradient(135deg, transparent 0 48%, hsl(var(--primary) / 0.08) 49% 51%, transparent 52%);
+    background-size: 64px 64px, 64px 64px, 180px 180px;
+  }
+
+  .light-grid {
+    background-image:
+      linear-gradient(rgba(16, 24, 32, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(16, 24, 32, 0.08) 1px, transparent 1px);
+    background-size: 46px 46px;
+  }
+
+  .section-band {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0)),
+      #08141c;
+  }
+
+  .premium-line {
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.68), transparent);
+  }
+
+  .mobile-preview .desktop-nav,
+  .mobile-preview .desktop-cta {
+    display: none !important;
+  }
+
+  .mobile-preview .hero-grid,
+  .mobile-preview .preview-grid,
+  .mobile-preview .hero-card-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .mobile-preview .hero-title {
+    font-size: 2.42rem !important;
+    line-height: 1.08 !important;
+  }
+
+  .mobile-preview .hero-media {
+    max-width: 100%;
+  }
+}
